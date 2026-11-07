@@ -23,7 +23,7 @@ It runs EfficientNet-Lite0, MobileNet V2 and ResNet-50 end-to-end on the acceler
 | | Input loader, Weight / coef. loader | Writes DDR data into the free bank of each SRAM |
 | | Write DMA | Writes INT8 outputs |
 | Datapath | Matrix AGU | Weight preload, im2col, padding and byte alignment |
-| | WS array ×2 + ACC ×2 | 8×8 INT8 MACs, INT32 accumulation (accumulate / overwrite) |
+| | PE array ×2 + ACC ×2 | 8×8 INT8 MACs, INT32 accumulation (accumulate / overwrite) |
 | | Vector AGU + Vector unit | ADD / MAXPOOL / AVGPOOL |
 | | Drain / quantization | ACC → quantization → output layout assembly |
 
@@ -83,15 +83,15 @@ Measured on a ZedBoard at 100 MHz with ImageNet val images 1–1000.
 
 ### Performance breakdown
 
-| Metric | EfficientNet-Lite0 | MobileNet V2 | ResNet-50 | Mean | Row |
-|---|---:|---:|---:|---:|---:|
-| Array active cycles | 79.7% | 74.9% | 94.1% | 82.9% | 1 |
-| Useful MACs (PE utilization) | 47.7% | 49.0% | 93.7% | 63.5% | 2 |
-| Unused MACs | 32.0% | 26.0% | 0.4% | 19.5% | 3 |
-| Tile switch cycles | 5.5% | 4.9% | 1.2% | 3.9% | 4 |
-| Non-matrix cycles | 14.8% | 20.2% | 4.6% | 13.2% | 5 |
-| Output write stalls | 19.2% | 25.2% | — | — | 6 |
-| GOPS (25.6 peak) | 12.21 | 12.53 | 24.00 | 16.25 | 7 |
+| Metric | EfficientNet-Lite0 | MobileNet V2 | ResNet-50 | Row |
+|---|---:|---:|---:|---:|
+| Array active cycles | 79.7% | 74.9% | 94.1% | 1 |
+| Useful MACs (PE utilization) | 47.7% | 49.0% | 93.7% | 2 |
+| Unused MACs | 32.0% | 26.0% | 0.4% | 3 |
+| Tile switch cycles | 5.5% | 4.9% | 1.2% | 4 |
+| Non-matrix cycles | 14.8% | 20.2% | 4.6% | 5 |
+| Output write stalls | 19.2% | 25.2% | — | 6 |
+| GOPS (25.6 peak) | 12.21 | 12.53 | 24.00 | 7 |
 
 - Row 1: cycles in which an input row enters the array
 - Row 2: MACs / (total cycles × 128)

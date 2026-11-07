@@ -95,7 +95,7 @@ class Figure:
 
     def array(self, key, x, y, w, h, index):
         self.rect(key, x, y, w, h)
-        self.text(x + w/2, y + 37, f'WS array {index}', 31, bold=True)
+        self.text(x + w/2, y + 37, f'PE array {index}', 31, bold=True)
         self.text(x + w/2, y + 76, '8 × 8 INT8 MACs', 27)
         cell, gap = 12, 7
         grid_w = cell*8 + gap*7
