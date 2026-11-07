@@ -1,0 +1,50 @@
+# AXI-Lite register map — single source.
+# Regenerate: python -m tools.regmap.generate
+#   rtl/accel_regs.svh, tb/common/regmap.py, sw/src/accel/accel_regs.h
+#
+# access:
+#   rw   read/write
+#   ro   read-only (HW drives, AXI write ignored)
+#   w1p  write-1 pulse (1 cycle, self-clear)
+#   w1c  write-1 clear (HW set has priority)
+
+address_width: 12
+data_width: 32
+
+registers:
+  - name: CTRL
+    offset: 0x00
+    access: rw
+    fields:
+      - {name: START,      bit: 0, access: w1p}
+      - {name: SOFT_RESET, bit: 1, access: w1p}
+
+  - name: STATUS
+    offset: 0x04
+    access: ro
+    fields:
+      - {name: BUSY,  bit: 0}
+      - {name: DONE,  bit: 1}
+      - {name: ERROR, bit: 2}
+
+  - name: IRQ_EN
+    offset: 0x08
+    access: rw
+    fields:
+      - {name: DONE,  bit: 0}
+      - {name: ERROR, bit: 1}
+
+  - name: IRQ_STATUS
+    offset: 0x0C
+    access: w1c
+    fields:
+      - {name: DONE,  bit: 0}
+      - {name: ERROR, bit: 1}
+
+  - {name: INSTR_BASE,  offset: 0x10, access: rw, width: 32}
+  - {name: INSTR_COUNT, offset: 0x14, access: rw, width: 32}
+  - {name: LAYER_INDEX, offset: 0x18, access: ro, width: 32}
+  - {name: ERROR_CODE,  offset: 0x1C, access: ro, width: 32}
+  - {name: PERF_SELECT, offset: 0x20, access: rw, width: 32}
+  - {name: PERF_DATA,   offset: 0x24, access: ro, width: 32}
+  - {name: HW_VERSION,  offset: 0x28, access: ro, width: 32}

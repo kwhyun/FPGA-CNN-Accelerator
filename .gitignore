@@ -1,0 +1,38 @@
+# Build outputs (make hw / make boot / tests)
+build/
+sw/boot/
+sim/
+.Xil/
+*.jou
+*.log
+*.str
+**/sim_build/
+*.vcd
+*.fst
+results*.xml
+
+# User-provided data: ONNX models and ImageNet (only model yaml is tracked)
+data/model/*
+!data/model/*.yaml
+data/dataset
+
+# Design records
+reports/
+STATUS.md
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+*.swp
+*~
+.vscode/
+.idea/
+
+# Internal design docs (public summary is README.md)
+docs/

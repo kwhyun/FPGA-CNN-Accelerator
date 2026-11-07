@@ -1,0 +1,44 @@
+// Auto-generated from data/regmap.yaml by compiler/regmap/generate.py.
+// DO NOT EDIT BY HAND — regenerate via `python -m compiler.regmap.generate`.
+
+#ifndef ACCEL_REGS_H
+#define ACCEL_REGS_H
+
+// AXI-Lite: 12-bit address, 32-bit data.
+// Offsets are byte offsets from the accelerator AXI-Lite base
+// (XPAR_ACCEL_TOP_0_BASEADDR).
+
+// ----- Register offsets -----
+#define ACCEL_CTRL_OFFSET 0x00u
+#define ACCEL_STATUS_OFFSET 0x04u
+#define ACCEL_IRQ_EN_OFFSET 0x08u
+#define ACCEL_IRQ_STATUS_OFFSET 0x0Cu
+#define ACCEL_INSTR_BASE_OFFSET 0x10u
+#define ACCEL_INSTR_COUNT_OFFSET 0x14u
+#define ACCEL_LAYER_INDEX_OFFSET 0x18u
+#define ACCEL_ERROR_CODE_OFFSET 0x1Cu
+#define ACCEL_PERF_SELECT_OFFSET 0x20u
+#define ACCEL_PERF_DATA_OFFSET 0x24u
+#define ACCEL_HW_VERSION_OFFSET 0x28u
+
+// ----- Field bit positions / masks -----
+#define ACCEL_CTRL_START_BIT 0u
+#define ACCEL_CTRL_START_MASK (1u << ACCEL_CTRL_START_BIT)
+#define ACCEL_CTRL_SOFT_RESET_BIT 1u
+#define ACCEL_CTRL_SOFT_RESET_MASK (1u << ACCEL_CTRL_SOFT_RESET_BIT)
+#define ACCEL_STATUS_BUSY_BIT 0u
+#define ACCEL_STATUS_BUSY_MASK (1u << ACCEL_STATUS_BUSY_BIT)
+#define ACCEL_STATUS_DONE_BIT 1u
+#define ACCEL_STATUS_DONE_MASK (1u << ACCEL_STATUS_DONE_BIT)
+#define ACCEL_STATUS_ERROR_BIT 2u
+#define ACCEL_STATUS_ERROR_MASK (1u << ACCEL_STATUS_ERROR_BIT)
+#define ACCEL_IRQ_EN_DONE_BIT 0u
+#define ACCEL_IRQ_EN_DONE_MASK (1u << ACCEL_IRQ_EN_DONE_BIT)
+#define ACCEL_IRQ_EN_ERROR_BIT 1u
+#define ACCEL_IRQ_EN_ERROR_MASK (1u << ACCEL_IRQ_EN_ERROR_BIT)
+#define ACCEL_IRQ_STATUS_DONE_BIT 0u
+#define ACCEL_IRQ_STATUS_DONE_MASK (1u << ACCEL_IRQ_STATUS_DONE_BIT)
+#define ACCEL_IRQ_STATUS_ERROR_BIT 1u
+#define ACCEL_IRQ_STATUS_ERROR_MASK (1u << ACCEL_IRQ_STATUS_ERROR_BIT)
+
+#endif  // ACCEL_REGS_H

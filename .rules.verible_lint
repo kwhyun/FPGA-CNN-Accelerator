@@ -1,0 +1,6 @@
+# Project lint config — see rtl/naming_convention.md for the authoritative rules.
+#
+# Disabled rules:
+# - parameter-name-style: Verible default expects CamelCase, but lowRISC/OpenTitan
+#   style (which this project follows) requires UPPER_CASE (e.g. ADDR_WIDTH, ARRAY_ROWS).
+-parameter-name-style

@@ -1,0 +1,11 @@
+--indentation_spaces=2
+--column_limit=100
+--port_declarations_indentation=indent
+--formal_parameters_indentation=indent
+--named_port_indentation=indent
+--named_parameter_indentation=indent
+--named_port_alignment=preserve
+--named_parameter_alignment=align
+--port_declarations_alignment=align
+--module_net_variable_alignment=align
+--assignment_statement_alignment=align

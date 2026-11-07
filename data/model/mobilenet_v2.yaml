@@ -1,0 +1,8 @@
+# torchvision mobilenet_v2 (IMAGENET1K_V1)
+input:
+  size: 224
+  crop: 0.875
+  interpolation: bilinear
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+calibration_images: 300
