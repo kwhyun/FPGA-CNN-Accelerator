@@ -102,12 +102,6 @@ Measured on a ZedBoard at 100 MHz with ImageNet val images 1–1000.
 - Row 7: 2 × MACs / mean latency
 - Sums: Row 1 + Row 4 + Row 5 = 100%, Row 2 + Row 3 = Row 1
 
-### Cycle share by layer type
-
-![Layer share](pictures/layer_share.png)
-
-- DWCONV uses only the 8 diagonal PEs out of 64, so its cycle share is large relative to its compute.
-
 ### Comparison with Cortex-A9
 
 ncnn running on one Cortex-A9 core (666.67 MHz) of the same board, with NEON (SIMD) enabled. A9 latency is the mean of 10 runs.
